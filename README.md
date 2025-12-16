@@ -2,6 +2,9 @@
 
 A simple, local task manager web application built with vanilla HTML, CSS, and JavaScript. Features persistent storage using localStorage, drag-and-drop task reordering, and a clean, responsive interface.
 
+**Status**: ✅ Fully functional - All core features implemented and tested
+**Last Updated**: December 15, 2025
+
 ## Features
 
 - **Add Tasks**: Quickly add tasks with categories
@@ -118,6 +121,38 @@ task_manager/
 ## Contributing
 
 This is a personal project, but feel free to fork and modify for your own use!
+
+## Development Notes
+
+### Recent Bug Fixes (Dec 15, 2025)
+- ✅ Fixed delete button not responding to clicks (switched to mousedown with capture phase)
+- ✅ Fixed task text layout (proper flexbox constraints)
+- ✅ Fixed task card sizing (reverted excessive padding)
+
+### Testing Status
+All features have been manually tested and verified working:
+- [x] Add tasks with Enter key and button
+- [x] Toggle task completion with 3-second undo window
+- [x] Task completion moves to Completed tab after delay
+- [x] Tab switching between To-Do and Completed
+- [x] Drag-and-drop reordering within categories
+- [x] Inline editing (click task title)
+- [x] Delete button appears in edit mode and works correctly
+- [x] Delete confirmation dialog
+- [x] Completed tab groups by day and orders correctly
+- [x] Data persists after page refresh
+- [x] Responsive layout on different screen sizes
+
+### For Developers
+See `claude.md` for:
+- Critical findings and learnings
+- Key technical decisions
+- Git commit guidelines
+
+See `task_manager_project_plan.md` for:
+- Complete implementation plan
+- Data model details
+- Feature specifications
 
 ## License
 

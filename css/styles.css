@@ -140,8 +140,7 @@ header nav ul li {
 
 /* Delete Button */
 .task-delete {
-  opacity: 0;
-  visibility: hidden;
+  display: none;
   background-color: var(--delete-color);
   color: white;
   border: none;
@@ -155,8 +154,7 @@ header nav ul li {
 }
 
 .task.editing .task-delete {
-  opacity: 1;
-  visibility: visible;
+  display: block;
 }
 
 .task-delete:hover {

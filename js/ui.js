@@ -7,7 +7,6 @@ const UI = {
    * Initialize UI and bind events
    */
   init() {
-    console.log('UI initialized - event listeners are being set up');
     this.bindEvents();
     this.render();
   },
@@ -38,19 +37,14 @@ const UI = {
 
     // Event delegation for task interactions - use mousedown to catch it earlier
     document.addEventListener('mousedown', (e) => {
-      console.log('Mousedown detected on:', e.target);
-      console.log('Target classes:', e.target.className);
-
       // Delete button - handle first to prevent blur interference
       const deleteButton = e.target.closest('.task-delete');
       if (deleteButton) {
         e.preventDefault();
         e.stopPropagation();
-        console.log('Delete button clicked!');
         const taskElement = deleteButton.closest('.task');
         if (taskElement) {
           const taskId = taskElement.dataset.id;
-          console.log('Task ID:', taskId);
           this.handleDelete(taskId);
         }
         return;
@@ -59,8 +53,6 @@ const UI = {
 
     // Keep click handler for other interactions
     document.addEventListener('click', (e) => {
-      console.log('Click detected on:', e.target);
-      console.log('Target classes:', e.target.className);
 
       // Checkbox toggle
       if (e.target.matches('.task-checkbox')) {
@@ -173,18 +165,13 @@ const UI = {
    * @param {string} taskId - Task ID
    */
   enterEditMode(taskId) {
-    console.log('Entering edit mode for task:', taskId);
     this.exitEditMode(); // Exit any existing edit mode
 
     this.editingTaskId = taskId;
     const taskElement = document.querySelector(`.task[data-id="${taskId}"]`);
-    if (!taskElement) {
-      console.log('Task element not found!');
-      return;
-    }
+    if (!taskElement) return;
 
     taskElement.classList.add('editing');
-    console.log('Added editing class to task');
     const titleElement = taskElement.querySelector('.task-title');
     titleElement.contentEditable = true;
     titleElement.classList.add('editing');

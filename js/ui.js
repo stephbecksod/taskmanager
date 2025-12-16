@@ -36,9 +36,9 @@ const UI = {
       });
     });
 
-    // Event delegation for task interactions
-    document.addEventListener('click', (e) => {
-      console.log('Click detected on:', e.target);
+    // Event delegation for task interactions - use mousedown to catch it earlier
+    document.addEventListener('mousedown', (e) => {
+      console.log('Mousedown detected on:', e.target);
       console.log('Target classes:', e.target.className);
 
       // Delete button - handle first to prevent blur interference
@@ -55,6 +55,12 @@ const UI = {
         }
         return;
       }
+    }, true); // Use capture phase
+
+    // Keep click handler for other interactions
+    document.addEventListener('click', (e) => {
+      console.log('Click detected on:', e.target);
+      console.log('Target classes:', e.target.className);
 
       // Checkbox toggle
       if (e.target.matches('.task-checkbox')) {

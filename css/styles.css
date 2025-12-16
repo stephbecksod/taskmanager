@@ -92,6 +92,8 @@ header nav ul li {
   align-items: center;
   gap: 0.75rem;
   flex: 1;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .task-content input[type="checkbox"] {
@@ -105,9 +107,12 @@ header nav ul li {
   flex: 1;
   font-size: 1rem;
   cursor: pointer;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem;
   border-radius: 0.25rem;
   transition: background-color var(--transition-speed);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 .task-title:hover {
@@ -118,7 +123,7 @@ header nav ul li {
   background-color: #fff3cd;
   border: 1px solid #ffc107;
   outline: none;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem;
 }
 
 /* Completed Task Styling */

@@ -37,16 +37,18 @@ const UI = {
 
     // Event delegation for task interactions
     document.addEventListener('click', (e) => {
+      // Delete button - handle first to prevent blur interference
+      if (e.target.matches('.task-delete')) {
+        e.stopPropagation();
+        const taskId = e.target.closest('.task').dataset.id;
+        this.handleDelete(taskId);
+        return;
+      }
+
       // Checkbox toggle
       if (e.target.matches('.task-checkbox')) {
         const taskId = e.target.closest('.task').dataset.id;
         this.handleToggleComplete(taskId);
-      }
-
-      // Delete button
-      if (e.target.matches('.task-delete')) {
-        const taskId = e.target.closest('.task').dataset.id;
-        this.handleDelete(taskId);
       }
 
       // Click outside task to exit edit mode
@@ -83,7 +85,12 @@ const UI = {
 
     document.addEventListener('blur', (e) => {
       if (e.target.matches('.task-title.editing')) {
-        this.saveEdit();
+        // Small delay to allow delete button click to register first
+        setTimeout(() => {
+          if (this.editingTaskId) {
+            this.saveEdit();
+          }
+        }, 100);
       }
     }, true);
   },

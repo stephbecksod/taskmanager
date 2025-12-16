@@ -38,11 +38,12 @@ const UI = {
     // Event delegation for task interactions
     document.addEventListener('click', (e) => {
       // Delete button - handle first to prevent blur interference
-      if (e.target.matches('.task-delete')) {
+      const deleteButton = e.target.closest('.task-delete');
+      if (deleteButton) {
         e.preventDefault();
         e.stopPropagation();
         console.log('Delete button clicked!');
-        const taskElement = e.target.closest('.task');
+        const taskElement = deleteButton.closest('.task');
         if (taskElement) {
           const taskId = taskElement.dataset.id;
           console.log('Task ID:', taskId);

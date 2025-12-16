@@ -103,7 +103,10 @@ header nav ul li {
 }
 
 .task-title {
-  flex: 1 1 auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  min-width: 0;
   font-size: 1rem;
   cursor: pointer;
   padding: 0.25rem 0.5rem;
@@ -111,7 +114,6 @@ header nav ul li {
   transition: background-color var(--transition-speed);
   word-wrap: break-word;
   overflow-wrap: break-word;
-  max-width: 100%;
 }
 
 .task-title:hover {

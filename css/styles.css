@@ -150,6 +150,8 @@ header nav ul li {
   cursor: pointer;
   font-size: 0.875rem;
   transition: all var(--transition-speed);
+  flex-shrink: 0;
+  width: auto;
 }
 
 .task.editing .task-delete {

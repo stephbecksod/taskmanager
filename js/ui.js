@@ -39,9 +39,15 @@ const UI = {
     document.addEventListener('click', (e) => {
       // Delete button - handle first to prevent blur interference
       if (e.target.matches('.task-delete')) {
+        e.preventDefault();
         e.stopPropagation();
-        const taskId = e.target.closest('.task').dataset.id;
-        this.handleDelete(taskId);
+        console.log('Delete button clicked!');
+        const taskElement = e.target.closest('.task');
+        if (taskElement) {
+          const taskId = taskElement.dataset.id;
+          console.log('Task ID:', taskId);
+          this.handleDelete(taskId);
+        }
         return;
       }
 
